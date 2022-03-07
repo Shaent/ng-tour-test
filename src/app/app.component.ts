@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-tour-test';
+
+    pages: Page[] = [{
+        name: 'Home',
+        path: ''
+    }, {
+        name: 'Module A',
+        path: 'module-a'
+    }, {
+        name: 'Module B',
+        path: 'module-b'
+    }];
+
+}
+
+interface Page {
+    name: string;
+    path: string;
 }
