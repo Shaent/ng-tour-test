@@ -1,4 +1,3 @@
-import { CustomTourService } from './../../shared/custom-tour.service';
 import {Component, OnInit} from '@angular/core';
 import {TourService} from 'ngx-ui-tour-md-menu';
 
@@ -9,30 +8,30 @@ import {TourService} from 'ngx-ui-tour-md-menu';
 export class HomeComponent implements OnInit {
 
     constructor(
-        private readonly tourService: TourService, // using this isntead of the customTourService works
-        private customTourService: CustomTourService, // using this custom service that extends the TourService does not work
+        private tourService: TourService,
     ) {}
 
     ngOnInit() {
-        this.customTourService.initialize([{
-            anchorId: 'app-home',
+        this.tourService.initialize([{
+            anchorId: 'anchor.1',
             content: 'This is a step from the eager loaded app module in the home component',
             title: 'Home Component',
             route: ''
         }, {
-            anchorId: 'module-a',
+            anchorId: 'anchor.2',
             content: 'This is a step from the lazy loaded module-a module in the module-a component',
             title: 'Module-a Component',
             route: 'module-a'
         }, {
-            anchorId: 'module-b',
+            anchorId: 'anchor.3',
             content: 'This is a step from the lazy loaded module-b module in the module-b component',
             title: 'Module-b Component',
             route: 'module-b'
         }]);
 
-        this.customTourService.start();
-        this.customTourService.test();
+
+        this.tourService.initialize$.subscribe(data => console.log(data));
+        this.tourService.start();
     }
 
 }

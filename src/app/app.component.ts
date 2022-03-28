@@ -9,13 +9,16 @@ export class AppComponent {
 
     pages: Page[] = [{
         name: 'Home',
-        path: ''
+        path: '',
+        tourAnchor: 'anchor.1'
     }, {
         name: 'Module A',
-        path: 'module-a'
+        path: 'module-a',
+        tourAnchor: 'anchor.2'
     }, {
         name: 'Module B',
-        path: 'module-b'
+        path: 'module-b',
+        tourAnchor: 'anchor.3'
     }];
 
 }
@@ -23,4 +26,5 @@ export class AppComponent {
 interface Page {
     name: string;
     path: string;
+    tourAnchor: string;
 }
